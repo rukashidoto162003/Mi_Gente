@@ -14,8 +14,9 @@ import ChatIcon from "@mui/icons-material/Chat";
 
 import styles from "../styles/videoComponent.module.css";
 import { useNavigate } from "react-router-dom";
+import server from "../environment";
 
-const server_url = "http://localhost:8000";
+const server_url = server;
 
 var connections =
   {}; /*connections is an object that stores all WebRTC peer connections between you and other participants Think:
@@ -66,6 +67,8 @@ export default function VideoMeetComponent() {
   //TODO
   //if(isChrome()===false){
   //}
+
+  
 
   const getPermissions = async () => {
     try {

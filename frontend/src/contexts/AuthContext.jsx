@@ -17,6 +17,7 @@ import {
 3)Stores user authentication data */
 import { useNavigate } from "react-router-dom"; /*Used for page redirection (login successful → redirect dashboard) */
 import httpStatus from "http-status"; /*Cleaner way to check API response status*/
+import server from "../environment";
 
 export const AuthContext = createContext({});
 /*This export from this file is used inside authentication.jsx */
@@ -24,7 +25,7 @@ export const AuthContext = createContext({});
 If any component tries to use useContext(AuthContext) without being wrapped inside AuthProvider, it will receive {} instead of crashing.*/
 
 const client = axios.create({
-  baseURL: "http://localhost:8000/api/v1/users",
+  baseURL: `${server}/api/v1/users`,
 }); /*Instead of writing:
 axios.post("http://localhost:8000/api/v1/users/register")
 every time
